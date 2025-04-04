@@ -1,0 +1,35 @@
+
+<nav class="navbar">
+    <a class="navbar-brand" href="#" ><b>Task Management System</b></a>
+    <div>
+         <ul class="navbar-nav" style="margin-left: 165ex; ">
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['/manager/managerhome']">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">Registration</a>
+                <div class="dropdown-content">
+                    <a [routerLink]="['/manager/employeereg']">Employee Registration</a>
+                    <a [routerLink]="['/manager/taskreg']">Task Registration</a>
+                    <a [routerLink]="['/manager/taskassign']">Task Assign</a>
+
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Tables</a>
+                <div class="dropdown-content">
+                    <a [routerLink]="['/manager/project']">Project Table</a>
+                    <!-- <a href="">Task Table</a> -->
+                    <a [routerLink]="['/manager/taskassigned']">Assigned Task Table</a>
+                </div> 
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul> 
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="footer">
+    <p><b>Task Management System</b> </p>
+</div>

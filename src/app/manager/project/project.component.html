@@ -1,0 +1,26 @@
+<section style=" margin-left: 30ex;">
+    <h2>Project Details</h2>
+  
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Project Name</th>
+            <th>Project Description</th>
+            <th>Project Last Date</th>
+            <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projectArray">
+            <td>{{ project.project_id }}</td>
+            <td>{{ project.project_name }}</td>
+            <td>{{ project.project_description }}</td>
+            <td>{{ project.last_date }}</td>
+            <td class="action-buttons">
+                <button class="edit-btn" [routerLink]="['/manager/taskassign']">Create Task</button>
+              </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

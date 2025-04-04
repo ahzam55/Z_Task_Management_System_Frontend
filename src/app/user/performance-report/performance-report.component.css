@@ -1,0 +1,117 @@
+/* General Styles */
+.performance-report {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0 auto;
+    padding: 50px; /* Reduced padding */
+    max-width: 900px; /* Reduced max-width */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reduced box-shadow */
+}
+
+.performance-report h2 {
+    text-align: center;
+    font-size: 20px; /* Reduced font size */
+    font-weight: bold;
+    margin-bottom: 15px; /* Reduced margin */
+    color: #2c3e50;
+}
+
+.performance-report h3 {
+    font-size: 18px; /* Reduced font size */
+    margin-top: 15px; /* Reduced margin */
+    margin-bottom: 8px; /* Reduced margin */
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 4px; /* Reduced padding */
+}
+
+.performance-report p {
+    font-size: 14px; /* Reduced font size */
+    line-height: 1.4; /* Reduced line height */
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.performance-report strong {
+    font-weight: bold;
+    color: #34495e;
+}
+
+/* Performance Overview Section */
+.performance-summary {
+    background-color: #ecf0f1;
+    padding: 10px; /* Reduced padding */
+    border-radius: 5px;
+    margin-top: 10px; /* Reduced margin */
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.performance-summary h4 {
+    font-size: 16px; /* Reduced font size */
+    color: #2c3e50;
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.performance-summary p {
+    margin-left: 15px; /* Reduced margin */
+}
+
+/* Recommendations & Next Steps */
+.performance-report ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.performance-report ul li {
+    font-size: 14px; /* Reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+    padding-left: 8px; /* Reduced padding */
+    text-indent: -8px; /* Reduced text indent */
+}
+
+.performance-report ul li::before {
+    content: "✔";
+    color: #2980b9;
+    margin-right: 8px; /* Reduced margin */
+}
+
+/* Final Comments */
+.performance-report .final-comments {
+    font-style: italic;
+    font-size: 16px; /* Reduced font size */
+    color: #2ecc71;
+    margin-top: 15px; /* Reduced margin */
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .performance-report {
+        padding: 10px;
+    }
+
+    .performance-report h2 {
+        font-size: 18px;
+    }
+
+    .performance-report h3 {
+        font-size: 16px;
+    }
+
+    .performance-report p {
+        font-size: 12px;
+    }
+
+    .performance-summary {
+        padding: 8px;
+    }
+
+    .performance-summary h4 {
+        font-size: 14px;
+    }
+
+    .performance-report ul li {
+        font-size: 12px;
+    }
+}

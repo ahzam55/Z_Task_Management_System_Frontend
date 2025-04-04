@@ -1,0 +1,48 @@
+<form  action="" class="classform" method="post" style="margin-left: 13ex;margin-top: 8ex;">
+    <div class="container">
+        <h2>Project Registration</h2>
+        <label for="project_name"><b>Project Name</b></label>
+        <input  [(ngModel)]="project_name" [ngModelOptions]="{standalone: true}"  type="text" id="text" placeholder="Enter Project Name" name="project_name" readonly><br><br>
+       
+        <label for="projectdescription"><b>Project Description</b></label>
+        <textarea [(ngModel)]="project_description" [ngModelOptions]="{standalone: true}" id="text" placeholder="Enter Project Description" name="projectdescription" readonly></textarea><br><br>
+       
+        <label for="lastdate"><b>Last Date</b></label>
+        <input [(ngModel)]="last_date" [ngModelOptions]="{standalone: true}"  type="date" id="lastdate" placeholder="Enter last date" name="lastdate" readonly><br><br>
+        <label for="assigned_to"><b>Assigned To</b></label><br>
+        <select [(ngModel)]="assigned_to" [ngModelOptions]="{standalone: true}" id="assigned_to" name="assigned_to" style="width: 42ex;height: 4ex;">
+            <option value="" disabled selected>Select a Person</option>
+            <option *ngFor="let person of managerArray" [value]="person.id">{{ person.username }}</option>
+        </select><br><br>
+        <button class="submit" type="submit"  (click)="saveOrUpdateRecords()">Submit</button>
+       
+    </div>
+</form>
+
+
+<section style=" margin-left: 65ex;">
+    <h2>Project Details</h2>
+  
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Project Name</th>
+            <th>Project Description</th>
+            <th>Project Last Date</th>
+            <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projectArray">
+            <td>{{ project.project_id }}</td>
+            <td>{{ project.project_name }}</td>
+            <td>{{ project.project_description }}</td>
+            <td>{{ project.last_date }}</td>
+            <td class="action-buttons">
+                <button class="edit-btn" (click)="setUpdate(project)">Assign Task</button>
+              </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

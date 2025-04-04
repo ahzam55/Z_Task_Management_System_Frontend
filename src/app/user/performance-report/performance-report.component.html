@@ -1,0 +1,30 @@
+<section class="performance-report">
+    <h2><b>Employee Performance Report</b></h2>
+    <p>Thank you for your continuous efforts and hard work. This report summarizes your performance based on the tasks completed and time spent on them.</p>
+
+    <h3>Employee Information</h3>
+    <p><strong>Name:</strong> {{ employeeName }}</p>
+    <p><strong>Employee ID:</strong> {{ employeeId }}</p>
+    <h3>Performance Overview</h3>
+    <div *ngIf="totalCompletedTasks >= 5; else noReport">
+        <p>Congratulations on your progress! Here’s a breakdown of the tasks you’ve completed so far:</p>
+        <div class="performance-summary">
+            <h4>Completed Tasks</h4>
+            <p><strong>Total Completed Tasks:</strong> {{ totalCompletedTasks }}</p>
+            <p><strong>Pending Tasks:</strong> {{ totalPendingTasks }}</p>
+            <p><strong>Performance Level:</strong> {{ performanceLevel }}</p>
+        </div>
+        <h3>Next Steps & Recommendations</h3>
+        <p>Based on your current progress, here are some recommendations for the next phase:</p>
+        <ul>
+            <li>Focus on the remaining pending tasks.</li>
+            <li>Ensure that deadlines for upcoming tasks are met.</li>
+            <li>Track your time to improve efficiency.</li>
+        </ul>
+        <h3>Final Comments</h3>
+        <p>Keep up the great work! Your contributions are integral to the success of the team.</p>
+    </div>
+    <ng-template #noReport>
+        <p>No Report Created Yet. Please complete at least 5 tasks to generate a performance report.</p>
+    </ng-template>
+</section>

@@ -1,0 +1,31 @@
+<section style=" margin-left: 35ex;">
+    <h2>Project Details</h2>
+  
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Task Name</th>
+            <th>Task ID</th>
+            <th>Report Name</th>
+            <th>Report Date</th>
+            <th>Uploaded By</th>
+            <th>File</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let taskreport of taskArray">
+            <td>{{ taskreport.taskreport_id }}</td>
+            <td>{{ taskreport.task_name }}</td>
+            <td>{{ taskreport.task }}</td>
+            <td>{{ taskreport.report_file }}</td>
+            <td>{{ taskreport.report_date }}</td>
+            <td>{{ taskreport.username }}</td>
+            <td><button  type="submit" (click)="getReportUrl(taskreport.report_file)">Open Report</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  

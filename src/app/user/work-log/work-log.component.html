@@ -1,0 +1,46 @@
+<form action="" class="classform" method="post" style="margin-left: 13ex; margin-top: 8ex;" (ngSubmit)="saveRecords()">
+    <div class="container">
+        <h2>Work Log</h2>
+        
+        <!-- Work Log Time Field -->
+        <label for="work_log_time"><b>Work Log Time (hours)</b></label><br>
+        <input [(ngModel)]="work_log_time" [ngModelOptions]="{standalone: true}" 
+               type="number" id="work_log_time" placeholder="Enter Work Log Time" 
+               name="work_log_time" required 
+               [max]="8" min="0" (ngModelChange)="validateWorkLogTime()"><br>
+        <div *ngIf="workLogTimeError" style="color: red;">Work log time cannot exceed 8 hours per day.</div><br>
+
+        <!-- Work Log Description Field -->
+        <label for="work_log_description"><b>Work Log Description</b></label><br>
+        <input [(ngModel)]="work_log_description" [ngModelOptions]="{standalone: true}" 
+               type="text" id="work_log_description" placeholder="Enter Work Log Description" 
+               name="work_log_description" required 
+               (ngModelChange)="validateDescription()"><br>
+        <div *ngIf="descriptionError" style="color: red;">Description must be at least 20 characters long.</div><br>
+
+        <!-- Submit Button -->
+        <button class="submit" type="submit" [disabled]="!isFormValid()">Submit</button>
+    </div>
+</form>
+
+<section style="margin-left: 65ex;">
+    <h2>Work Log Details</h2>
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Work Log Time</th>
+            <th>Work Log Description</th>
+            <th>Work Log Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let worklog of WorkLogArray">
+            <td>{{ worklog.work_log_id }}</td>
+            <td>{{ worklog.work_log_time }}hr</td>
+            <td>{{ worklog.work_log_description }}</td>
+            <td>{{ worklog.created_date }}</td>
+        </tr>
+      </tbody>
+    </table>
+</section>

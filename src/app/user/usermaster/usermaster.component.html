@@ -1,0 +1,38 @@
+
+<nav class="navbar">
+    <a class="navbar-brand" href="#" ><b>Task Management System</b></a>
+    <div>
+         <ul class="navbar-nav" style="margin-left: 170ex; ">
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['/user/userhome']">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">Registration</a>
+                <div class="dropdown-content">
+                    <a [routerLink]="['/user/worklog']" >Work Log</a>
+                    <!-- <a [routerLink]="['/user/employeereg']">Employee Registration</a> -->
+                    <!-- <a [routerLink]="['/user/postreg']">Post Registration</a>
+                    <a [routerLink]="['/user/taskreg']">Task Registration</a> -->
+
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Tables</a>
+                <div class="dropdown-content">
+                    <!-- <a href="">Manager Table</a> -->
+                    <!-- <a href="">Employee Table</a> -->
+                    <a [routerLink]="['/user/usertask']">Task Table</a>
+                    <a [routerLink]="['/user/userreport']">Performance Report</a>
+                    <!-- <a href="">Assigned Task Table</a> --> 
+                </div> 
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul> 
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="footer">
+    <p><b>Task Management System</b> </p>
+</div>

@@ -1,0 +1,30 @@
+<section style=" margin-left: 30ex;">
+    <h2>Project Details</h2>
+  
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Project Name</th>
+            <th>Task Name</th>
+            <th>Task Description</th>
+            <th>Task Last Date</th>
+            <th>High Priority</th>
+            <th>Status</th>
+            <th>Assigned To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of assignedtaskArray">
+            <td>{{ task.task_id }}</td>
+            <td>{{ task.project_name }}</td>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.task_description }}</td>
+            <td>{{ task.task_last_date }}</td>
+            <td>{{ task.is_high_priority }}</td>
+            <td>{{ task.status_display }}</td>
+            <td>{{ task.username }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

@@ -1,0 +1,68 @@
+<section style="margin-left: 30ex;">
+  <h2>Task Details</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project Name</th>
+        <th>Task Name</th>
+        <th>Task Description</th>
+        <th>Task Last Date</th>
+        <th>Status</th>
+        <th>Update Status</th>
+        <th>Upload File</th> <!-- New column for file upload -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of assignedtaskArray">
+        <td>{{ task.task_id }}</td>
+        <td>{{ task.project_name }}</td>
+        <td>{{ task.task_name }}</td>
+        <td>{{ task.task_description }}</td>
+        <td>{{ task.task_last_date }}</td>
+        <td>{{ task.status_display }}</td>
+        
+        <td class="action-buttons">
+          <button 
+            class="status-btn" 
+            [attr.data-task-id]="task.task_id" 
+            [attr.data-status]="task.status" 
+            (click)="updateTaskStatus(task)">
+            
+            <ng-container *ngIf="task.status === 'not_started'">
+              Start Processing
+            </ng-container>
+            
+            <ng-container *ngIf="task.status === 'in_progress'">
+              Complete Task
+            </ng-container>
+            
+            <ng-container *ngIf="task.status === 'completed'">
+              Task Completed
+            </ng-container>
+            
+          </button>        
+        </td>
+        
+        <!-- File Upload Column -->
+        <td>
+    
+          <input 
+            id="fileInput-{{task.task_id}}" 
+            type="file" 
+            (change)="onFileSelected($event, task)" 
+            #fileInput 
+          />
+          
+          <button 
+            *ngIf="task.selectedFile" 
+            (click)="uploadFile(task)" 
+            class="upload-btn">
+            upload file
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
