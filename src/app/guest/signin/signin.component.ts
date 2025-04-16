@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
-  imports: [FormsModule,HttpClientModule],
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './signin.component.html',
-  styleUrl: './signin.component.css'
+  styleUrls: ['./signin.component.css'] 
 })
 export class SigninComponent {
   password: string = ''; 
@@ -19,14 +19,13 @@ export class SigninComponent {
     let bodyData = {
       password: this.password,
       username: this.username,
-      
     };
     console.log(bodyData);
 
     this.http.post('http://127.0.0.1:8000/Signin/', bodyData).subscribe(
       (resultData: any) => {
         console.log(resultData);
-        console.log(resultData.user_id);
+        console.log(resultData.data.user_id);
 
         if (resultData.hasError === false) {
           if (resultData.data && resultData.data.access_token && resultData.data.refresh_token) {
@@ -43,21 +42,21 @@ export class SigninComponent {
               this.router.navigate(['manager/managerhome']);
             } else if (resultData.data.redirect === 'userhome') {
               this.router.navigate(['user/userhome']);
-            }else if (resultData.data.redirect === 'signin') {
-              if (resultData.message && resultData.message.includes('Cannot log more than 8 hours in a day')) {
-              alert('Cannot log more than 8 hours in a day.');
-            } else {
-              this.router.navigate(['guest/']);
-            }
+            } 
           }
-        }
         } else {
           alert(resultData.message || 'An error occurred');
         }
       },
       (error) => {
         console.error('Error occurred', error);
-        alert('Incorrect username or password');
+
+    
+        if (error.error && error.error.message) {
+          alert(error.error.message); 
+        } else {
+          alert('An error occurred, please try again later.'); 
+        }
       }
     );
   }

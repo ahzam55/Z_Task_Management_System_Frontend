@@ -30,11 +30,11 @@ export class TaskReportViewComponent {
 
 
   getReportUrl(report_file: string): void {
+    
     const baseUrl = 'http://127.0.0.1:8000';  
   
-    this.http.get(`${baseUrl}${report_file}`, { responseType: 'blob' }).subscribe(
+    this.http.get(`${baseUrl}${report_file}`, { responseType: 'blob' }).subscribe(  
       (response) => {
-  
         const reportUrl = URL.createObjectURL(response);
   
         window.open(reportUrl, '_blank');

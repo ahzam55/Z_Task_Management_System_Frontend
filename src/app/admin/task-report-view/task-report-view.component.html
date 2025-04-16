@@ -16,8 +16,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let taskreport of taskArray">
-            <td>{{ taskreport.taskreport_id }}</td>
-            <td>{{ taskreport.task_name }}</td>
+            <td>{{ taskreport.taskreport_id  }}</td>
+            <td>{{ taskreport.task_name.trim() !== '' ? taskreport.task_name : 'no task name' }}</td>
             <td>{{ taskreport.task }}</td>
             <td>{{ taskreport.report_file }}</td>
             <td>{{ taskreport.report_date }}</td>
